@@ -12,7 +12,7 @@ func (ims *IntMergeSorter) mergeSort(array []int, left int, right int) {
 		center := (left + right) / 2
 		ims.mergeSort(array, left, center)
 		ims.mergeSort(array, center+1, right)
-		ims.merge(array, left, right, center)
+		ims.merge(array, left, center, right)
 	}
 
 }
@@ -21,7 +21,6 @@ func (ims *IntMergeSorter) merge(a []int, left int, center int, right int) {
 	j := center + 1
 	k := 0
 	b := make([]int, right-left+1)
-
 	for i <= center && j <= right {
 		if a[i] <= a[j] {
 			b[k] = a[i]
@@ -48,7 +47,7 @@ func (ims *IntMergeSorter) merge(a []int, left int, center int, right int) {
 }
 
 func (ims *IntMergeSorter) Sort(array []int) {
-	if len(array) == 1 {
+	if len(array) <= 1 {
 		return
 	}
 	ims.mergeSort(array, 0, len(array)-1)
