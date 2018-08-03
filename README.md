@@ -1,2 +1,2 @@
-# goexcrs
+# goexrcs
 Some personal exercises on Go
