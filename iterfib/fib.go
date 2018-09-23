@@ -48,10 +48,9 @@ func iterativeFib(n int) int {
 		return 1
 	}
 
-	fib1, fib2 := 0, 1
-	for i := 0; i < n-1; i++ {
-		fib2, fib1 = fib2+fib1, fib2
-
+	a, b := 1, 1
+	for i := 0; i < n; i++ {
+		a, b = b, a+b
 	}
-	return fib2
+	return a
 }
